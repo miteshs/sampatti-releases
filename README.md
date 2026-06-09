@@ -9,6 +9,7 @@ Anthropic API key** (stored in the macOS Keychain).
 
 ```sh
 brew tap miteshs/sampatti
+brew trust miteshs/sampatti     # Homebrew asks this once for third-party taps
 brew install --cask sampatti
 ```
 

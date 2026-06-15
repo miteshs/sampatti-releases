@@ -1,62 +1,118 @@
 # Sampatti — releases
 
-**Sampatti** is a private, India-first portfolio-analysis app for macOS and Windows
-(a US market mode is built in). All portfolio data stays on your device — imports,
-holdings, net worth, history. The optional AI analysis sends only a compact,
-previewable summary to Claude — through a relay, or with **your own Anthropic API
-key** (stored in your system keychain).
+**Sampatti** adds up everything you own (and owe) into one honest number, explains it in
+plain words, and — when you ask — lets an AI look it over. It's a desktop app for macOS and
+Windows, India-first, with a US market mode built in.
 
-**See it first** — narrated tutorials with captions (~4 min, every tab + AI setup):
-[India demo](../../releases/latest/download/sampatti-demo-india.mp4) ·
-[US demo](../../releases/latest/download/sampatti-demo-us.mp4)
+**Your money stays on your computer.** Imports, holdings, net worth, history — all of it
+lives only on your machine. The optional AI review sends just a small, previewable summary of
+totals and percentages to Claude (never your statements), either through a relay or with your
+own Anthropic API key.
 
-## Install — macOS (Apple Silicon)
+---
 
-With Homebrew (recommended — updates arrive with `brew upgrade`):
+## Install
 
-```sh
-# Only if you don't have Homebrew yet (check with: brew --version):
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+### macOS (Apple Silicon — M-series, macOS 11+)
 
-brew tap miteshs/sampatti
-brew trust miteshs/sampatti     # Homebrew asks this once for third-party taps
-brew install --cask sampatti
-```
+1. Download `Sampatti_<version>_aarch64.dmg` from the [Releases page](../../releases).
+2. Open it and **double-click Sampatti**.
+3. It offers to **move itself into Applications** — click yes, and it reopens from there.
 
-**No Homebrew?** Download the `.dmg` from [Releases](../../releases) and drag
-**Sampatti** into *Applications*. The build is currently unsigned, so macOS will warn on
-first launch — right-click the app → **Open**; on newer macOS you may also need
-*System Settings → Privacy & Security → **Open Anyway*** (the brew cask handles this
-automatically).
+No dragging, no Homebrew. The app is signed with an Apple Developer ID and notarized by
+Apple, so it opens normally on first launch — no security warnings. From here on it
+**auto-updates**: it checks for a newer signed release and installs it in place (Settings →
+Check for updates, or automatically on launch).
 
-## Install — Windows (x64)
+### Windows (10/11, x64)
 
-Download `Sampatti_<version>_x64-setup.exe` from [Releases](../../releases) and run it.
-The installer is unsigned, so SmartScreen will warn — click **More info → Run anyway**.
+Download the latest `Sampatti_<version>_x64-setup.exe` from the [Releases page](../../releases)
+and run it. This build is unsigned, so SmartScreen will warn once — click
+**More info → Run anyway**.
+
+---
+
+## Getting started
+
+About 20 minutes, once. After that, a couple of minutes a month. You don't need to be a
+"computer person" — if you're comfortable with your phone and net banking, you're fine.
+
+### 1. Open the app and pick your region
+
+On the welcome screen, choose **India** or **United States**. (Want to see the finished thing
+first? Click **Load demo portfolio** for a fully filled-in example, then clear it when you're
+ready to start your own.)
+
+### 2. Gather your statements into one folder
+
+Make one folder on your computer and drop in a statement from **each place your money lives**.
+No need to organize them — just collect them.
+
+- **🇮🇳 India — the shortcut:** your monthly **NSDL/CDSL CAS email** lists every demat stock
+  *and* mutual fund in one file. For purchase costs, also grab the **detailed CAS** from
+  *camsonline.com → Statements → CAS*. These are usually password-protected PDFs — the app
+  asks for the password when you import and never stores or sends it.
+- **🇺🇸 US:** download the **positions CSV** from each brokerage (Schwab, Fidelity, Vanguard…).
+- **Everything else:** download the holdings statement from each platform. **Excel or CSV
+  files work best**, but PDFs and even phone screenshots are fine too.
+
+> Rule of thumb: if you can download it or photograph it, the app can probably read it. Exports
+> that include a *cost basis / buy value* column give you true profit-and-loss.
+
+### 3. Import the folder
+
+Click **Add data → 📁 Import a whole folder** (or **Import files** for individual ones).
+
+Each statement turns into a **card for you to check** — the account name, the amounts, anything
+that looks off. **Nothing is saved until you approve each card.** You're always in control.
+
+Next month, import the newer statement and it simply **updates** that account — it won't create
+a duplicate.
+
+### 4. Add the things that don't come as statements
+
+Some assets have no download. Add these by hand on the **Holdings** screen:
+
+- **India:** your house, PF, FDs, insurance, gold — and any **loans**, so the total is honest.
+- **US:** your house, 401(k)/IRA, CDs, insurance — and any **loans**.
+
+Everything stays editable later (Manage → ✎).
+
+### 5. Bring values up to today
+
+Click **Refresh live prices** on the Holdings screen. The app also quietly records your net
+worth each day you open it, so a **personal history chart builds itself** over time.
+(If you hold US assets, refresh the USD→INR rate in Settings.)
+
+### 6. Connect Claude for the AI review
+
+Go to the **Settings** tab → **AI analysis**:
+
+- **Easiest:** paste the **access code** you were given into *Settings → Access code*. That's
+  all the relay needs.
+- **Most private:** turn on **Developer mode** and use your own Anthropic API key
+  (`platform.claude.com` → API keys), stored in the macOS Keychain / Windows Credential Manager
+  and used to call Anthropic directly.
+
+### 7. Ask anything, in your own words
+
+Run the analysis, then ask plain questions like *"Am I too dependent on one stock?"* or
+*"Is my mix too risky for my age?"* You get a full read on concentration, diversification, tax,
+liquidity and retirement — then follow-ups.
+
+**Your privacy here:** only a small summary of totals and percentages is ever sent — never your
+actual statements — and you can **preview exactly what's about to be sent** before anything
+leaves your computer.
+
+---
+
+### The one thing to remember
+
+You approve every card, every value, and every message before it counts. The app never does
+anything with your money data behind your back — it all lives on this one computer.
 
 ## Notes
 
 - macOS: Apple Silicon (M-series), macOS 11+. Windows: 10/11, x64.
-- Works fully offline except live prices/FX (optional) and AI analysis (relay or your own key).
+- Works fully offline except live prices / FX and AI analysis, which are both optional.
 - This repository hosts release artifacts only.
-
-## Getting started (5 steps)
-
-1. **Install** (above), launch Sampatti.
-2. **Settings tab** — choose how AI analysis reaches Claude: the relay (easiest — ask us
-   for access in [an issue](../../issues)), or your own Anthropic API key for maximum
-   privacy (stored in the macOS Keychain / Windows Credential Manager). Refresh the
-   USD→INR rate if you hold US assets.
-3. **Gather statements** — download a holdings/positions export from every account into one
-   folder. Prefer CSV/Excel (parsed fully on-device) and pick exports that include
-   *cost basis / buy value* columns so you get true P&L. PDFs/screenshots also work — they're
-   read by Claude only after you confirm.
-4. **Add data → 📁 Import a whole folder** — review each parsed account before saving: fix
-   names/classes/values, fill missing cost bases, and check "Apply to" (New account vs Update
-   an existing one). Everything stays editable later (Manage → ✎). Add property/PPF/FDs/gold
-   by hand, loans as liabilities, and your income sources.
-5. **AI Analysis → ✨ Analyze my portfolio** — preview the exact compact summary being sent,
-   get the full concentration/diversification/tax/liquidity/retirement read, then ask
-   follow-ups.
-
-Re-import newer statements anytime — they update the matching account instead of duplicating it.

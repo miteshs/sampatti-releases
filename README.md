@@ -30,6 +30,20 @@ Download the latest `Sampatti_<version>_x64-setup.exe` from the [Releases page](
 and run it. This build is unsigned, so SmartScreen will warn once — click
 **More info → Run anyway**.
 
+**"Is this safe?"** The warning means *unsigned*, not *unsafe* — no paid certificate is used.
+Every release attaches proof you can check yourself:
+
+- **Checksum** — make sure the download wasn't tampered with. In PowerShell:
+  `certutil -hash Sampatti_<version>_x64-setup.exe SHA256`, then compare to
+  `SHA256SUMS-windows.txt` on the release.
+- **VirusTotal** — the release notes link a scan across ~70 antivirus engines.
+- **Build provenance** — the installer is built by public GitHub Actions straight from source.
+  With the [GitHub CLI](https://cli.github.com/):
+  `gh attestation verify Sampatti_<version>_x64-setup.exe --bundle Sampatti_<version>_x64-setup.exe.sigstore.json --repo miteshs/sampatti`
+
+This doesn't remove the SmartScreen prompt — only a paid certificate does — but it lets you
+confirm exactly what you're running.
+
 ---
 
 ## Getting started

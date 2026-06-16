@@ -37,9 +37,6 @@ Every release attaches proof you can check yourself:
   `certutil -hash Sampatti_<version>_x64-setup.exe SHA256`, then compare to
   `SHA256SUMS-windows.txt` on the release.
 - **VirusTotal** — the release notes link a scan across ~70 antivirus engines.
-- **Build provenance** — the installer is built by public GitHub Actions straight from source.
-  With the [GitHub CLI](https://cli.github.com/):
-  `gh attestation verify Sampatti_<version>_x64-setup.exe --bundle Sampatti_<version>_x64-setup.exe.sigstore.json --repo miteshs/sampatti`
 
 This doesn't remove the SmartScreen prompt — only a paid certificate does — but it lets you
 confirm exactly what you're running.
